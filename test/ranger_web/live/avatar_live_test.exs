@@ -18,7 +18,7 @@ defmodule RangerWeb.AvatarLiveTest do
   test "renders avatar image from given email", %{conn: conn} do
     email = "frodo@shire.com"
     avatar_url = Gravatar.generate(email)
-    {:ok, view, html} = live(conn, ~p"/avatar/#{email}")
+    {:ok, view, _html} = live(conn, ~p"/avatar/#{email}")
 
     assert has_element?(view, ~s(img[src*="#{avatar_url}"]))
   end
@@ -26,7 +26,7 @@ defmodule RangerWeb.AvatarLiveTest do
   test "renders avatar image from given email better way", %{conn: conn} do
     email = "frodo@shire.com"
     avatar_url = Gravatar.generate(email)
-    {:ok, view, html} = live(conn, ~p"/avatar/#{email}")
+    {:ok, view, _html} = live(conn, ~p"/avatar/#{email}")
 
     avatar = element(view, ~s(img[src*="#{avatar_url}"]))
 
